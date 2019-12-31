@@ -37,5 +37,7 @@ public class Recipe {
     @OneToOne(cascade = CascadeType.ALL) // if I will delete recipe I need to delete Notes to that recipe to!
     private Notes notes;
 
-//    private Set<Category> categories;
+    @ManyToMany
+    @JoinTable(name="recipe_category", joinColumns = @JoinColumn(name = "recipe_id"),inverseJoinColumns = @JoinColumn(name="category_id"))
+    private Set<Category> categories;
 }
