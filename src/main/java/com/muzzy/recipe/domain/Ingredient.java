@@ -21,7 +21,7 @@ public class Ingredient {
     @ManyToOne
     private Recipe recipe;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.EAGER) //load every time its default but it is here to show how to use fetch type
     private UnitOfMeasure uom;
 
 }

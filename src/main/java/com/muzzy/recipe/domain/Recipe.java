@@ -24,7 +24,9 @@ public class Recipe {
     private String source;
     private String url;
     private String directions;
-    // TODO: 2019-12-31 Difficulty difficulty
+
+    @Enumerated(value = EnumType.STRING)
+    private Difficulty difficulty;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Set<Ingredient> ingredients;
@@ -34,4 +36,6 @@ public class Recipe {
 
     @OneToOne(cascade = CascadeType.ALL) // if I will delete recipe I need to delete Notes to that recipe to!
     private Notes notes;
+
+//    private Set<Category> categories;
 }
