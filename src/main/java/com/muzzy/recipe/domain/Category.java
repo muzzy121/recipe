@@ -11,6 +11,7 @@ import java.util.Set;
 @Entity
 @EqualsAndHashCode(exclude = {"recipes"})
 public class Category {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

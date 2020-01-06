@@ -1,6 +1,7 @@
 package com.muzzy.recipe.domain;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -11,6 +12,7 @@ import java.util.Set;
  *
  */
 @Data
+@NoArgsConstructor
 @Entity
 public class Recipe {
     @Id
@@ -41,6 +43,10 @@ public class Recipe {
     @ManyToMany
     @JoinTable(name="recipe_category", joinColumns = @JoinColumn(name = "recipe_id"),inverseJoinColumns = @JoinColumn(name="category_id"))
     private Set<Category> categories = new HashSet<>();
+
+    public Recipe(Long id){
+        this.id = id;
+    }
 
     public void addNote(Notes notes) {
         notes.setRecipe(this);
